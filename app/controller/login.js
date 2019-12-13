@@ -6,9 +6,9 @@ class LoginController extends Controller {
   async index() {
     const { ctx } = this;
     let code = ctx.request.body.code
-    await this.service.login.index(code)
+    let token = await this.service.login.index(code)
     ctx.body = {
-      msg: 'sucess'
+      token: token
     }
   }
 }
